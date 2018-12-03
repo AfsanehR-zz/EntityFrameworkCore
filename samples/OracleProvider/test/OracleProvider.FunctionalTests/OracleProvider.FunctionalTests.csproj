@@ -6,6 +6,7 @@
     <RootNamespace>Microsoft.EntityFrameworkCore</RootNamespace>
     <NoWarn>$(NoWarn);CA1822</NoWarn>
     <CodeAnalysisRuleSet>..\..\..\..\EFCore.ruleset</CodeAnalysisRuleSet>
+    <SkipTests>True</SkipTests>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,8 +25,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="$(MicrosoftNETTestSdkPackageVersion)" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="$(XunitRunnerVisualStudioPackageVersion)" />
     <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="$(MicrosoftExtensionsConfigurationEnvironmentVariablesPackageVersion)" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="$(MicrosoftExtensionsConfigurationJsonPackageVersion)" />
   </ItemGroup>
