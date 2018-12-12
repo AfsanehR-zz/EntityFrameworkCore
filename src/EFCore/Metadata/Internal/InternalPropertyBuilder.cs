@@ -33,6 +33,26 @@ namespace Microsoft.EntityFrameworkCore.Metadata.Internal
         ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
         ///     directly from your code. This API may change or be removed in future releases.
         /// </summary>
+        public virtual bool IsRequired(bool? isRequired, ConfigurationSource configurationSource)
+        {
+            if (isRequired.HasValue)
+            {
+                return IsRequired(isRequired.Value, configurationSource);
+            }
+
+            if (configurationSource.Overrides(Metadata.GetIsNullableConfigurationSource()))
+            {
+                Metadata.SetIsNullable(null, configurationSource);
+                return true;
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
+        ///     directly from your code. This API may change or be removed in future releases.
+        /// </summary>
         public virtual bool IsRequired(bool isRequired, ConfigurationSource configurationSource)
         {
             if (CanSetRequired(isRequired, configurationSource))
